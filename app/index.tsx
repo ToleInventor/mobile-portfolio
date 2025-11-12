@@ -1,29 +1,26 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
-// Import Ionicons for better tab icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 const Tab = createBottomTabNavigator();
 
-// --- Define Colors for Reusability and better contrast ---
+
 const Colors = {
     background: '#1E1E1E',
-    cardBackground: '#2C2C2C', // Slightly lighter than background for depth
+    cardBackground: '#2C2C2C',
     primaryText: '#FFFFFF',
     secondaryText: '#B0B0B0',
-    accent1: '#007AFF', // A clean, modern blue for accents
-    accent2: '#34C759', // A nice secondary green
+    accent1: '#007AFF',
+    accent2: '#34C759',
 };
 
-// --- Components ---
 
 function HomeScreen() {
   return (
     <ScrollView style={styles.body} contentContainerStyle={{paddingBottom: 20}}>
         <View style={styles.headerSection}>
-            {/* Make sure './pic.jpg' exists in the same directory */}
             <Image source={require('./pic.jpg')} style={styles.picture}/>
             <Text style={ styles.welcome }>
                 Welcome to my portfolio!
@@ -118,7 +115,6 @@ function Projects(){
             <Text style={styles.welcome}>My Projects</Text>
             
             <View style={styles.projectCard}>
-                {/* Make sure './scr.png' exists in the same directory */}
                 <Image source={require('./scr.png')} style={styles.projoimg} />
                 <Text style={styles.projectText}>
                     Portfolio Website (React Native)
@@ -126,7 +122,6 @@ function Projects(){
             </View>
             
              <View style={styles.projectCard}>
-                 {/* Make sure './logo.png' exists in the same directory */}
                 <Image source={require('./logo.png')} style={styles.projoimg}/>
                 <Text style={styles.projectText}>
                     AgriLens Kenya System
@@ -141,21 +136,18 @@ const Tabs = () => {
   return (
     <Tab.Navigator
         screenOptions={({ route }) => ({
-            // Styling for the header bar
             headerStyle: { backgroundColor: Colors.cardBackground },
             headerTintColor: Colors.primaryText,
-            // Styling for the tab bar itself
             tabBarStyle: { 
                 backgroundColor: Colors.cardBackground, 
                 borderTopWidth: 1, 
                 borderTopColor: '#333',
-                height: 60, // Added height for better spacing on tabs
-                paddingBottom: 5, // Ensures labels don't get cut off on notched devices
+                height: 60,
+                paddingBottom: 5,
             },
             tabBarActiveTintColor: Colors.accent1,
             tabBarInactiveTintColor: Colors.secondaryText,
             
-            // === Function to render icons ===
             tabBarIcon: ({ focused, color, size }) => {
                 let iconName = 'help-circle-outline';
 
@@ -184,8 +176,6 @@ const Tabs = () => {
 
 export default Tabs;
 
-
-// --- STYLESHEET ---
 
 const styles = StyleSheet.create({
     projectCard: {
@@ -279,7 +269,6 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     infoSection: {
-        // Spacing handled by paddingHorizontal on the body and marginTop on titles
     },
     extraText: {
         color: Colors.secondaryText,
